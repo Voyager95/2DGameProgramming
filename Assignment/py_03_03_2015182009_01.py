@@ -4,7 +4,7 @@ import turtle
 def move(x, y, a=0):
     turtle.penup()
     turtle.setheading(a)
-    turtle.goto(x, y)
+    turtle.goto(x-150, y)
     turtle.pendown()
 
 
