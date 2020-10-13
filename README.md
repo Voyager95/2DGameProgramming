@@ -72,10 +72,17 @@ Just Feel은 총 6개의 State로 구성되어있습니다.
     
 ## 4. 개발일정
 1주차 - 키입력 모듈/ 리소스 준비
+
 2주차 - 버튼, 노트, 배경 등의 요소(객체)
+
 3주차 - Select record / Record
+
 4주차 - Record / 파일 Json 저장
+
 5주차 - Title / Select Play
+
 6주차 - Play
+
 7주차 - Play / Score
+
 8주차 - 버그수정
