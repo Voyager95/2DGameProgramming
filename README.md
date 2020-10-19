@@ -1,6 +1,6 @@
 2DGameProgramming Term Project : Just Feel
 ======
-
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Main.png "Logo Title Text")
 ## 1. 게임 설명
 - 제목: Just Feel
 - 개요: 사용자가 자유롭게 음악에 맞추어서 노트를 기록하고 자신이 플레이할 수 있는 리듬 게임  
@@ -33,6 +33,7 @@ Just Feel은 총 6개의 State로 구성되어있습니다.
     - 곡 선택 -> Play
     
 #### -Play
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Play.png "Logo Title Text")
   -	Roll: 선택된 음악에 맞추어 노트가 생성되며 플레이어의 입력에 맞추어 노트에 맞는지 판단합니다.
   -	Objects: 배경이미지, 노트, 판정 효과
   - Input: 영문키, 숫자, 벡스페이스, 스페이스, 엔터
@@ -57,6 +58,7 @@ Just Feel은 총 6개의 State로 구성되어있습니다.
     - 곡 선택 -> Record
     
 #### -Record
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Record.png "Logo Title Text")
   - Roll: 선택된 음악이 재상되며 패턴을 입력하거나 키를 입력하면 해당 내용을 저장합니다.
   - Objects: 어떤것이 입력되고 있는지 화면에 표시 / 어떤 파일이름으로 저장할지 입력받는 창
   - Input: 영문키, 숫자, 벡스페이스, 스페이스, 엔터
