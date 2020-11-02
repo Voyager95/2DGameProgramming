@@ -1,9 +1,2 @@
-done = True
-x = 1
-y = 2
-a = 3
-b = 4
-
-x = y if done else (a, b)
-
-print(x)
+b = [x+3 for x in range(10)]
+print(b)
