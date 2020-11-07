@@ -12,19 +12,22 @@ class BtnBg:
         self.left = self.image.w // 2
         self.right = self.image.w - self.left - 1
 
-    def draw(self, l, b, w, h):
-        src_left = 0, 0, self.left, self.image.h
-        dst_left = l, b, self.left, h
-        self.image.clip_draw_to_origin(*src_left, *dst_left)
+    def draw(self, l, b, w, h, m=DRAW_CLIP):
+        if m == DRAW_CLIP:
+            src_left = 0, 0, self.left, self.image.h
+            dst_left = l, b, self.left, h
+            self.image.clip_draw_to_origin(*src_left, *dst_left)
 
-        center = w - self.left - self.right
-        src_mid = self.left, 0, 1, self.image.h
-        dst_mid = l + self.left, b, center, h
-        self.image.clip_draw_to_origin(*src_mid, *dst_mid)
+            center = w - self.left - self.right
+            src_mid = self.left, 0, 1, self.image.h
+            dst_mid = l + self.left, b, center, h
+            self.image.clip_draw_to_origin(*src_mid, *dst_mid)
 
-        src_right = self.image.w - self.right, 0, self.right, self.image.h
-        dst_right = l + w - self.right, b, self.right, h
-        self.image.clip_draw_to_origin(*src_right, *dst_right)
+            src_right = self.image.w - self.right, 0, self.right, self.image.h
+            dst_right = l + w - self.right, b, self.right, h
+            self.image.clip_draw_to_origin(*src_right, *dst_right)
+        if m == DRAW_CENTER:
+            self.image.draw(800, 350)
 
     btn_bg_cache = {}
 
@@ -34,7 +37,7 @@ class BtnBg:
         if key in BtnBg.btn_bg_cache:
             return BtnBg.btn_bg_cache[key]
 
-        file = name + '_' + state + '_btn3.png'
+        file = 'Btn_' + name + '_' + state + '.png'
         btn_bg = BtnBg(res(file))
         BtnBg.btn_bg_cache[key] = btn_bg
         return btn_bg
@@ -48,7 +51,20 @@ class Button:
         self.t_x = self.l + (self.w - self.t_w) / 2
         self.t_y = self.b + self.h // 2
         self.mouse_point = None
-        self.bg = BtnBg.get('blue', 'normal')
+        self.drawMethod = DRAW_CLIP
+
+        # --- State
+        # --Normal
+        self.normalBg = ('Blue', 'Normal')
+        self.normalText = ''
+        # --Hover
+        self.hoverBg = ('Blue', 'Hober')
+        self.hoverText = ''
+        # --Pressed
+        self.pressedBg = ('Blue', 'ressed')
+        self.pressedText = ''
+
+        self.bg = BtnBg.get(*self.normalBg)
 
     def set_text(self, font, text):
         self.text = text
@@ -56,7 +72,7 @@ class Button:
         self.t_w, self.t_h = get_text_extent(font, text)
 
     def draw(self):
-        self.bg.draw(self.l, self.b, self.w, self.h)
+        self.bg.draw(self.l, self.b, self.w, self.h, self.drawMethod)
         # self.font.draw(self.t_x, self.t_y, self.text)
         draw_centered_text(self.font, self.text, self.l,
                            self.b, self.w, self.h)
@@ -69,39 +85,41 @@ class Button:
                 if pt_in_rect(mouse_xy(e), self.get_bb()):
                     self.mouse_point = mouse_xy(e)
                     self.backup = self.text
-                    self.text = "Pressed"
-                    self.bg = BtnBg.get('blue', 'pressed')
+                    self.text = self.pressedText
+                    self.bg = BtnBg.get(*self.pressedBg)
                     return True
             if e.type == SDL_MOUSEMOTION:
                 mpos = mouse_xy(e)
                 in_rect = pt_in_rect(mpos, self.get_bb())
                 if in_rect:
-                    self.bg = BtnBg.get('blue', 'hover')
+                    self.bg = BtnBg.get(*self.hoverBg)
                     return True
                 else:
-                    self.bg = BtnBg.get('blue', 'normal')
+                    self.bg = BtnBg.get(*self.normalBg)
                     return False
 
             return False
 
         if pair == LBTN_UP:
             self.mouse_point = None
-            self.text = self.backup
+            self.text = self.normalBg
             mpos = mouse_xy(e)
             if pt_in_rect(mpos, self.get_bb()):
                 self.callback()
-            self.bg = BtnBg.get('blue', 'normal')
+            self.bg = BtnBg.get(*self.normalBg)
             return False
 
         if e.type == SDL_MOUSEMOTION:
             mpos = mouse_xy(e)
             in_rect = pt_in_rect(mpos, self.get_bb())
             if in_rect:
-                self.text = "In Rect"
-                self.bg = BtnBg.get('blue', 'pressed')
+                if len(self.pressedText) != 0:
+                    self.text = self.pressedText
+                self.bg = BtnBg.get(*self.pressedBg)
             else:
-                self.text = "Out Rect"
-                self.bg = BtnBg.get('blue', 'hover')
+                if len(self.hoverText) != 0:
+                    self.text = self.hoverText
+                self.bg = BtnBg.get(*self.hoverBg)
 
         return True
 

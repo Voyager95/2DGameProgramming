@@ -23,13 +23,19 @@ def build_world():
     # Button(l, b, w, h, font, text, callback, btnClass=None):
     font = gfw.font.load(gobj.res('ENCR10B.TTF'), 40)
 
-    l, b, w, h = 50, 350, get_canvas_width()-100, 80
-    btn = Button(l, b, w, h, font, "Play Card Version", lambda: start("enemy"))
+    l, b, w, h = canvas_width/2 - 270/2, 120, 270, 150
+    btn = Button(l, b, w, h, font, '', lambda: start("enemy"))
+    btn.normalBg = ('Play', 'Normal')
+    btn.hoverBg = ('Play', 'Hover')
+    btn.pressedBg = ('Play', 'Pressed')
     gfw.world.add(gfw.layer.ui, btn)
 
-    b -= 120
-    btn = Button(l, b, w, h, font, "Play Twice Version",
+    b -= 100
+    btn = Button(l, b, w, h, font, "",
                  lambda: start("twice"))
+    btn.normalBg = ('Record', 'Normal')
+    btn.hoverBg = ('Record', 'Hover')
+    btn.pressedBg = ('Record', 'Pressed')
     gfw.world.add(gfw.layer.ui, btn)
 
 
