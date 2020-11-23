@@ -6,6 +6,26 @@ LBTN_DOWN = (SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT)
 LBTN_UP = (SDL_MOUSEBUTTONUP,   SDL_BUTTON_LEFT)
 
 
+class BtnSFX:
+    def __init__(self, music):
+        self.music = load_music(res("Sfx_Com_Btn.mp3"))
+
+    def play(self):
+        self.music.play()
+
+    btn_SFX_cache = {}
+
+    @staticmethod
+    def get(music):
+        key = music
+        if key in BtnSFX.btn_SFX_cache:
+            return BtnSFX.btn_SFX_cache[key]
+
+        btn_SFX = BtnSFX(res(music))
+        BtnSFX.btn_SFX_cache[key] = btn_SFX
+        return btn_SFX
+
+
 class BtnBg:
     def __init__(self, image):
         self.image = gfw.image.load(image)
@@ -64,7 +84,10 @@ class Button:
         self.pressedBg = ('Blue', 'ressed')
         self.pressedText = ''
 
+        # --- Img
         self.bg = BtnBg.get(*self.normalBg)
+        # --- SFX
+        self.ClickSFX = BtnSFX.get('Sfx_Com_Btn.mp3')
 
     def set_text(self, font, text):
         self.text = text
@@ -87,6 +110,7 @@ class Button:
                     self.backup = self.text
                     self.text = self.pressedText
                     self.bg = BtnBg.get(*self.pressedBg)
+                    self.ClickSFX.play()
                     return True
             if e.type == SDL_MOUSEMOTION:
                 mpos = mouse_xy(e)

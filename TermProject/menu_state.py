@@ -3,6 +3,7 @@ import gfw
 import gobj
 from button import Button
 import pair_state
+import record_state
 
 canvas_width = 1366
 canvas_height = 768
@@ -23,7 +24,7 @@ def build_world():
     # Button(l, b, w, h, font, text, callback, btnClass=None):
     font = gfw.font.load(gobj.res('ENCR10B.TTF'), 40)
 
-    l, b, w, h = canvas_width/2 - 270/2, 120, 270, 150
+    l, b, w, h = canvas_width/2 - 270/2, 120, 270, 140
     btn = Button(l, b, w, h, font, '', lambda: start("enemy"))
     btn.normalBg = ('Play', 'Normal')
     btn.hoverBg = ('Play', 'Hover')
@@ -32,11 +33,15 @@ def build_world():
 
     b -= 100
     btn = Button(l, b, w, h, font, "",
-                 lambda: start("twice"))
+                 lambda: gfw.push(record_state))
     btn.normalBg = ('Record', 'Normal')
     btn.hoverBg = ('Record', 'Hover')
     btn.pressedBg = ('Record', 'Pressed')
     gfw.world.add(gfw.layer.ui, btn)
+
+    global bgm
+    bgm = load_music(gobj.res('Bgm_Main.mp3'))
+    bgm.repeat_play()
 
 
 def enter():
@@ -85,6 +90,9 @@ def handle_mouse(e):
 
 def exit():
     print("menu_state exits")
+
+    global bgm
+    bgm.stop()
     pass
 
 

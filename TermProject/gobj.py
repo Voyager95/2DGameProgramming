@@ -1,9 +1,10 @@
 import random
 from pico2d import *
 import gfw
+import os
 
 RES_DIR = './res/'
-
+MUSIC_DIR = 'PlayMusic/'
 # 전역 설정
 DRAW_CLIP = 0
 DRAW_CENTER = 1
@@ -11,6 +12,10 @@ DRAW_CENTER = 1
 
 def res(file):
     return RES_DIR + file
+
+
+def resMusic(file):
+    return RES_DIR + MUSIC_DIR + file
 
 
 def resl(files):
