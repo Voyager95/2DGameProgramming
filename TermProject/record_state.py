@@ -8,7 +8,7 @@ from Note import Note
 from mutagen.mp3 import MP3
 
 inputType = "stroke"
-musicName = "ACDC - You Shook Me All Night Long.mp3"
+recordMusicName = "ACDC - You Shook Me All Night Long.mp3"
 
 startTime = 0
 endTime = 0
@@ -86,12 +86,12 @@ def enter():
 
     # music
     global music
-    music = gfw.load_music(gobj.resMusic(musicName))
+    music = gfw.load_music(gobj.resMusic(recordMusicName))
     music.play()
 
     # time
     startTime = time.time()
-    endTime = startTime + MP3(gobj.resMusic(musicName)).info.length
+    endTime = startTime + MP3(gobj.resMusic(recordMusicName)).info.length
 
     # inputType Image
     global inputTypeDownImage, inputTypeStrokeImage

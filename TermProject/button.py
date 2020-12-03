@@ -81,13 +81,16 @@ class Button:
         self.hoverBg = ('Blue', 'Hober')
         self.hoverText = ''
         # --Pressed
-        self.pressedBg = ('Blue', 'ressed')
+        self.pressedBg = ('Blue', 'Pressed')
         self.pressedText = ''
 
         # --- Img
         self.bg = BtnBg.get(*self.normalBg)
         # --- SFX
         self.ClickSFX = BtnSFX.get('Sfx_Com_Btn.mp3')
+
+    def update_Img(self):
+        self.bg = BtnBg.get(*self.normalBg)
 
     def set_text(self, font, text):
         self.text = text

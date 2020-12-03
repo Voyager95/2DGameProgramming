@@ -5,9 +5,12 @@ import os
 
 RES_DIR = './res/'
 MUSIC_DIR = 'PlayMusic/'
-# 전역 설정
+# 전역
 DRAW_CLIP = 0
 DRAW_CENTER = 1
+
+canvas_width = 1366
+canvas_height = 768
 
 
 def res(file):
