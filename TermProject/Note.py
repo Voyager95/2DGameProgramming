@@ -3,7 +3,7 @@ import gfw
 from gobj import *
 
 
-class Note:
+class note:
     SIZE = 100
 
     def __init__(self, x, y, speed, noteType):
@@ -31,5 +31,5 @@ class Note:
         gfw.world.remove(self)
 
     def get_bb(self):
-        half = Note.SIZE // 2 - 5
+        half = note.SIZE // 2 - 5
         return self.x - half, self.y - half, self.x + half, self.y + half

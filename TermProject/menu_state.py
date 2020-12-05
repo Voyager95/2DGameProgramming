@@ -37,6 +37,7 @@ def build_world():
     btn.normalBg = ('Play', 'Normal')
     btn.hoverBg = ('Play', 'Hover')
     btn.pressedBg = ('Play', 'Pressed')
+    btn.update_Img()
     gfw.world.add(gfw.layer.ui, btn)
 
     b -= 100
@@ -44,6 +45,7 @@ def build_world():
     btn.normalBg = ('Record', 'Normal')
     btn.hoverBg = ('Record', 'Hover')
     btn.pressedBg = ('Record', 'Pressed')
+    btn.update_Img()
     gfw.world.add(gfw.layer.ui, btn)
 
     global bgm

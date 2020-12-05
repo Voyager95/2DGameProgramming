@@ -18,15 +18,24 @@ dic_key['E'] = Key(('2', '3', '4'), ('S', 'D', 'F'))
 dic_key['F'] = Key(('E', 'R', 'T'), ('C', 'V', 'B'))
 dic_key['G'] = Key(('R', 'T', 'Y'), ('V', 'B', 'N'))
 dic_key['H'] = Key(('T', 'Y', 'U'), ('V', 'B', 'N', 'M'))
-
+dic_key['I'] = Key(('7', '8', '9'), ('j', 'k', 'l'))
+dic_key['J'] = Key(('Y', 'U', 'I'), ('N', 'M', ','))
+dic_key['K'] = Key(('U', 'I', 'O'), ('M', ',', '.'))
+dic_key['L'] = Key(('I', 'O', 'P'), (',', '.', '/'))
+dic_key['M'] = Key(('H', 'J', 'K', 'L'), ('SPACE'))
 dic_key['N'] = Key(('G', 'H', 'J', 'K'), ('SPACE'))
-
+dic_key['O'] = Key(('8', '9', '0', '-'), ('K', 'L', ';'))
+dic_key['P'] = Key(('9', '0', '-', '='), ('L', ';'))
+dic_key['Q'] = Key(('`', '1', '2'), ('A', 'S'))
 dic_key['R'] = Key(('3', '4', '5'), ('D', 'F', 'G'))
+dic_key['S'] = Key(('Q', 'W', 'E'), ('Z', 'X', 'C'))
 dic_key['T'] = Key(('4', '5', '6'), ('F', 'G', 'H'))
-
+dic_key['U'] = Key(('6', '7', '8', '9'), ('H', 'J', 'K'))
 dic_key['V'] = Key(('D', 'F', 'G'), ('SPACE'))
-
+dic_key['W'] = Key(('1', '2', '3', '4'), ('A', 'S', 'D'))
+dic_key['X'] = Key(('A', 'S', 'D'), ('SPACE'))
 dic_key['Y'] = Key(('5', '6', '7', '8'), ('G', 'H', 'J'))
+dic_key['Z'] = Key(('A', 'S'), ('SPACE'))
 
 
 class StrokeInputSystem:

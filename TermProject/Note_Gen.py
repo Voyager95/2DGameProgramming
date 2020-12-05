@@ -1,7 +1,7 @@
 import random
 import gfw
 from pico2d import *
-from Note import Note
+from note import note
 
 GEN_X = [50, 150, 250, 350, 450]
 next_wave = 0
@@ -20,7 +20,7 @@ def generate_wave():
     for x in GEN_X:
         level = enemy_level()
         speed = -(100 + 5 * wave_index)
-        e = Note(x, speed, level)
+        e = note(x, speed, level)
         gfw.world.add(gfw.layer.enemy, e)
 
     wave_index += 1

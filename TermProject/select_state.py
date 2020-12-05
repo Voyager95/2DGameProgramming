@@ -44,6 +44,17 @@ def set_music_count():
         if -1 == i.find('.mp3'):
             musicList.remove(i)
 
+    if targetScene != 'record':
+        originList = os.listdir(gobj.RES_DIR + gobj.MUSIC_DIR)
+        for i in musicList[:]:
+            jfrFileName = i.replace('.mp3', '.jfr')
+            found = False
+            for o in originList:
+                if o == jfrFileName:
+                    found = True
+            if found == False:
+                musicList.remove[i]
+
     maxPageNum = math.ceil(len(musicList) / musicNumPerList)
 
     presentPage = 0
@@ -187,6 +198,10 @@ def handle_mouse(e):
             return True
 
     return False
+
+
+def pause():
+    pass
 
 
 def exit():
