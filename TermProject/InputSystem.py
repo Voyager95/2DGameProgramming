@@ -112,7 +112,7 @@ class StrokeInputSystem:
 
 
 class DownInputSystem:
-    sameInputProcessingTime = 0.03
+    sameInputProcessingTime = 0.05
 
     def __init__(self, onOneDownInput, onTwoDownInput, onThreeDownInput, onFourDownInput):
         self.inputList = []

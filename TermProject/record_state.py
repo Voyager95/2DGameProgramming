@@ -8,7 +8,7 @@ from note import note
 from mutagen.mp3 import MP3
 import json
 import os
-from textAlert import textAlert
+from alert import textAlert
 
 # --- Setting
 inputType = "stroke"
@@ -52,6 +52,7 @@ def save_record():
     file.write(content)
     file.close()
     print('저장')
+
     # --- 세이브 안내
     gfw.world.add(gfw.layer.note, textAlert(
         font, 'Record File Saved', 150, 600, 200, 200, 5))

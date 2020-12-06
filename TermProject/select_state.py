@@ -9,6 +9,8 @@ import math
 from button import Button
 import record_state
 import play_state
+import copy
+from functools import partial
 
 #--- Setting
 targetScene = "record"
@@ -53,7 +55,7 @@ def set_music_count():
                 if o == jfrFileName:
                     found = True
             if found == False:
-                musicList.remove[i]
+                musicList.remove(i)
 
     maxPageNum = math.ceil(len(musicList) / musicNumPerList)
 
@@ -62,25 +64,28 @@ def set_music_count():
 
 
 def set_page():
-    global musicList, presentPage, musicNumPerList
+    global musicList, presentPage, musicNumPerList, musicButtonList
+
+    clear_page()
 
     startIndex = presentPage * musicNumPerList
     endIndex = 0
-    if startIndex + musicNumPerList - 1 > len(musicList):
+    if startIndex + musicNumPerList > len(musicList):
         endIndex = len(musicList)
     else:
         endIndex = startIndex + musicNumPerList
 
     l, b, w, h = gobj.canvas_width/2 - 576/2, 520, 576, 116
     for i in range(startIndex, endIndex):
-        musicName = musicList[i]
+        musicName = copy.deepcopy(musicList[i])
         b -= 116
         btn = Button(l, b, w, h, font,
-                     musicList[i], lambda: select(musicName))
+                     musicList[i], partial(select, musicName))
         btn.normalBg = ('Music', 'Normal')
         btn.hoverBg = ('Music', 'Normal')
         btn.pressedBg = ('Music', 'Pressed')
         btn.update_Img()
+        musicButtonList.append(btn)
         gfw.world.add(gfw.layer.ui, btn)
 
     if endIndex - startIndex != musicNumPerList:
@@ -91,14 +96,17 @@ def set_page():
             btn.hoverBg = ('Empty', 'Normal')
             btn.pressedBg = ('Empty', 'Normal')
             btn.update_Img()
+            musicButtonList.append(btn)
             gfw.world.add(gfw.layer.ui, btn)
 
     pass
 
 
 def clear_page():
-    for b in musicButtonList:
-        gfw.world.remove(b)
+    global musicButtonList
+    if musicButtonList != None:
+        for b in musicButtonList:
+            gfw.world.remove(b)
     pass
 
 
@@ -151,7 +159,7 @@ def enter():
     gfw.world.add(gfw.layer.ui, btn)
 
     l += 800
-    btn = Button(l, b, w, h, font, '', lambda: page_right())
+    btn = Button(l, b, w, h, font, '', lambda: None)
     btn.normalBg = ('Right', 'Normal')
     btn.hoverBg = ('Right', 'Normal')
     btn.pressedBg = ('Right', 'Normal')
@@ -176,6 +184,9 @@ def handle_event(e):
 
     if e.type == SDL_QUIT:
         return gfw.quit()
+
+    if e.type == SDL_KEYDOWN and e.key == SDLK_ESCAPE:
+        return gfw.pop()
 
     if handle_mouse(e):
         return
@@ -209,6 +220,11 @@ def exit():
     global bgm
     bgm.stop()
 
+    pass
+
+
+def resume():
+    enter()
     pass
 
 

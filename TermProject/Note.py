@@ -16,6 +16,7 @@ class note:
         elif noteType == 'up':
             self.image = gfw.image.load(RES_DIR + '/Note_Up.png')
         self.dy = speed
+        self.noteType = noteType
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -24,8 +25,12 @@ class note:
         #self.time += gfw.delta_time
         self.y += self.dy * gfw.delta_time
 
-        if self.y > get_canvas_height():
-            self.remove()
+        if self.dy > 0:
+            if self.y > get_canvas_height():
+                self.remove()
+        else:
+            if self.y < 0:
+                self.remove()
 
     def remove(self):
         gfw.world.remove(self)

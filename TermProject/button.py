@@ -8,7 +8,7 @@ LBTN_UP = (SDL_MOUSEBUTTONUP,   SDL_BUTTON_LEFT)
 
 class BtnSFX:
     def __init__(self, music):
-        self.music = load_music(res("Sfx_Com_Btn.mp3"))
+        self.music = load_wav(res("Sfx_Com_Btn.wav"))
 
     def play(self):
         self.music.play()
@@ -87,7 +87,7 @@ class Button:
         # --- Img
         self.bg = BtnBg.get(*self.normalBg)
         # --- SFX
-        self.ClickSFX = BtnSFX.get('Sfx_Com_Btn.mp3')
+        self.ClickSFX = BtnSFX.get('Sfx_Com_Btn.wav')
 
     def update_Img(self):
         self.bg = BtnBg.get(*self.normalBg)
@@ -129,7 +129,7 @@ class Button:
 
         if pair == LBTN_UP:
             self.mouse_point = None
-            self.text = self.normalBg
+            self.text = self.normalText
             mpos = mouse_xy(e)
             if pt_in_rect(mpos, self.get_bb()):
                 self.callback()
