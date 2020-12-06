@@ -88,3 +88,10 @@ Just Feel은 총 6개의 State로 구성되어있습니다.
 7주차 - Play / Score
 
 8주차 - 버그수정
+
+## 사용된 음악
+
+Alive by LiQWYD https://soundcloud.com/liqwyd
+Creative Commons — Attribution 3.0 Unported — CC BY 3.0
+Free Download / Stream: https://bit.ly/l_alive
+Music promoted by Audio Library https://youtu.be/8xXFbq4J52E
