@@ -11,8 +11,12 @@
       > 노트에 맞추어 E키를 누른다. (X)  
       > 특정 시점에 맞추어 아무 키를 입력한다. (O)  
       > 특정 시간동안 어떤 위치에 있는 키를 연속으로 누른다. (O)  
-    
-## 2. Game State
+## 2. 메뉴얼
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(0).png "Menual Text")
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(1).png "Menual Text")
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(2).png "Menual Text")
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(3).png "Menual Text")
+## 3. Game State
 Just Feel은 총 6개의 State로 구성되어있습니다.
 
 #### -Title
@@ -66,13 +70,13 @@ Just Feel은 총 6개의 State로 구성되어있습니다.
     - ESC -> SelectRecord
     - 곡완료 -> Title
 
-## 3. 필요한 기술
+## 4. 필요한 기술
   - 수업시간에 배울 것으로 예상:
     - 음악 재생
   - 수업시간에 배우지 않을 것으로 예상:
     - 파일 입출력
     
-## 4. 개발일정
+## 5. 개발일정
 1주차 - 키입력 모듈/ 리소스 준비
 
 2주차 - 버튼, 노트, 배경 등의 요소(객체)
@@ -88,10 +92,3 @@ Just Feel은 총 6개의 State로 구성되어있습니다.
 7주차 - Play / Score
 
 8주차 - 버그수정
-
-## 사용된 음악
-
-Alive by LiQWYD https://soundcloud.com/liqwyd
-Creative Commons — Attribution 3.0 Unported — CC BY 3.0
-Free Download / Stream: https://bit.ly/l_alive
-Music promoted by Audio Library https://youtu.be/8xXFbq4J52E
