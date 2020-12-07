@@ -12,10 +12,10 @@
       > 특정 시점에 맞추어 아무 키를 입력한다. (O)  
       > 특정 시간동안 어떤 위치에 있는 키를 연속으로 누른다. (O)  
 ## 2. 메뉴얼
-![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(0).png "Menual Text")
-![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(1).png "Menual Text")
-![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(2).png "Menual Text")
-![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(3).png "Menual Text")
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(0).PNG "Menual Text")
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(1).PNG "Menual Text")
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(2).PNG "Menual Text")
+![alt text](https://github.com/Voyager95/2DGameProgramming/blob/master/JustFeel_Manual(3).PNG "Menual Text")
 ## 3. Game State
 Just Feel은 총 6개의 State로 구성되어있습니다.
 
